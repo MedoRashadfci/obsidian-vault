@@ -166,7 +166,8 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "yet-another-obsidian-synchronizer:YAOS": false
     }
   },
   "active": "4254c27ea3c9f574",
