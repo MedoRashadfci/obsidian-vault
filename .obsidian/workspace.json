@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pentration/Exploit.md",
+                "file": "SOC 1/Blue Team Introduction/Humans as Attack Vectors.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Exploit"
+              "title": "Humans as Attack Vectors"
             }
           }
         ]
@@ -172,8 +172,13 @@
   },
   "active": "4254c27ea3c9f574",
   "lastOpenFiles": [
-    "index.md/Hello Mahmoud.md",
+    "SOC 1/Blue Team Introduction/SOC Role in Blue Team.md",
+    "SOC 1/Blue Team Introduction/Humans as Attack Vectors.md",
+    "Pasted image 20251105004927.png",
+    "Pasted image 20251105004837.png",
     "pentration/Exploit.md",
+    "SOC 1/Blue Team Introduction",
+    "index.md/Hello Mahmoud.md",
     "pentration",
     "SOC 1",
     "index.md.md",
