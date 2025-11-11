@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOC 1/Blue Team Introduction/Humans as Attack Vectors.md",
+                "file": "tools/fuff.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Humans as Attack Vectors"
+              "title": "fuff"
             }
           }
         ]
@@ -172,8 +172,18 @@
   },
   "active": "4254c27ea3c9f574",
   "lastOpenFiles": [
-    "SOC 1/Blue Team Introduction/SOC Role in Blue Team.md",
+    "pentration/Authentication Bypass.md",
+    "tools/fuff.md",
+    "tools",
+    "pentration/Subdomain Enumeration.md",
+    "pentration/Content Discovery.md",
+    "SOC 1/Wireshark.md",
+    "pentration/OWASP Top 10/Injection.md",
+    "Udemy Red Teaming/Sqlmap.md",
+    "Udemy Red Teaming",
     "SOC 1/Blue Team Introduction/Humans as Attack Vectors.md",
+    "pentration/OWASP Top 10",
+    "SOC 1/Blue Team Introduction/SOC Role in Blue Team.md",
     "Pasted image 20251105004927.png",
     "Pasted image 20251105004837.png",
     "pentration/Exploit.md",
