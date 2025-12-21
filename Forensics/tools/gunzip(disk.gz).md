@@ -13,6 +13,11 @@ ls mnt
 
 هنستخدمه كـ **مكان نركّب (mount) فيه القرص** علشان نقدر نتصفحه كأنه folder عادي.
 
+
+لو عايز تحذفه تكتب sudo umount mnt او sudo umount -l mnt
+sudo rm -r mnt
+
+
 ---
 
 ### ### `sudo mount -o loop disko-1.dd mnt`

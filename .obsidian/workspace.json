@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOC 1/Wireshark.md",
+                "file": "Forensics/Windows_Logs.evtx.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wireshark"
+              "title": "Windows_Logs.evtx"
             }
           },
           {
@@ -227,13 +227,16 @@
   },
   "active": "194a26aea4b1fd76",
   "lastOpenFiles": [
-    "Forensics/tools/tshark.md",
+    "tools/Nmap.md",
+    "Forensics/Windows_Logs.evtx.md",
+    "SOC 1/Wireshark.md",
     "Forensics/tools/gunzip(disk.gz).md",
-    "Forensics/tools/Steghide.md",
     "Forensics/tools/ExifTool.md",
+    "pentration/Introduction to Web Hacking/sql injection.md",
+    "Forensics/tools/tshark.md",
+    "Forensics/tools/Steghide.md",
     "Untitled.base",
     "Forensics/tools",
-    "Forensics/Untitled.md",
     "Untitled",
     "pentration/Introduction to Web Hacking/File Inclusion.md",
     "Forensics",
@@ -243,7 +246,6 @@
     "pentration/Introduction to Web Hacking/Content Discovery.md",
     "pentration/Introduction to Web Hacking/Authentication Bypass.md",
     "pentration/Introduction to Web Hacking",
-    "SOC 1/Wireshark.md",
     "tools/fuff.md",
     "tools",
     "pentration/OWASP Top 10/Injection.md",
