@@ -4,20 +4,67 @@
     "type": "split",
     "children": [
       {
-        "id": "ef99daeefd9ee052",
+        "id": "84677ef742618a6d",
         "type": "tabs",
         "children": [
           {
-            "id": "997e4affdacd4813",
+            "id": "97d1d038f22ac823",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Forensics/maharatech/DFIR basics/Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "f2e135905df89e38",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Forensics/tools/fsck.ext3.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "fsck.ext3"
+            }
+          },
+          {
+            "id": "6dcbaa12a4505afb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Forensics/ideas/pdf.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "pdf"
+            }
+          },
+          {
+            "id": "550069ae5648da90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SOC 1/Windows Security Monitoring/Windows Threat Detection 2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Windows Threat Detection 2"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -166,51 +213,52 @@
       "yet-another-obsidian-synchronizer:YAOS": false
     }
   },
-  "active": "997e4affdacd4813",
+  "active": "550069ae5648da90",
   "lastOpenFiles": [
-    "SOC 1/SOC Team Internals/SOC L1 Alert Reporting.md",
-    "pentration/Introduction to Web Hacking/Subdomain Enumeration.md",
-    "index.md/Hello Mahmoud.md",
-    "Forensics/tools/xdg-open.md",
-    "Forensics/tools/Foremost.md",
-    "Forensics/tools/stegsolve.md",
-    "Forensics/tools/Steghide.md",
+    "SOC 1/Windows Security Monitoring/Windows Logging for SOC.md",
+    "SOC 1/Windows Security Monitoring/Windows Threat Detection 2.md",
+    "SOC 1/Windows Security Monitoring/Windows Threat Detection 1.md",
+    "Pasted image 20260309230140.png",
+    "Pasted image 20260309230128.png",
     "SOC 1/Wireshark.md",
-    "Forensics/tools/gunzip(disk.gz).md",
-    "Forensics/tools/hashcat.md",
-    "Forensics/tools/ExifTool.md",
-    "Forensics/tools/binwalk.md",
-    "Forensics/Windows_Logs.evtx.md",
-    "Forensics/tools/tshark.md",
-    "Forensics/tools/openstego.md",
-    "Forensics/tools/bitlocker2john.md",
-    "SOC 1/Core SOC Solutions/Introduction to SOAR.md",
+    "SOC 1/Web Security Monitoring/Detecting Web Shells.md",
+    "SOC 1/Windows Security Monitoring",
+    "Pasted image 20260228235532.png",
+    "SOC 1/Web Security Monitoring/Detecting Web Attacks.md",
+    "SOC 1/Web Security Monitoring/Untitled",
+    "pentration/Network Security/Active Reconnaissance.md",
     "pentration/Network Security/Passive Reconnaissance.md",
-    "SOC 1/Core SOC Solutions/Introduction to EDR.md",
-    "pentration/Network Security",
+    "tools/Nmap.md",
+    "tools/fuff.md",
+    "tools/remmina(RDP).md",
+    "Udemy Red Teaming/Sqlmap.md",
+    "SOC 1/Web Security Monitoring/Web Security Essentials.md",
+    "SOC 1/Network Security Monitoring/IDS Fundamentals.md",
+    "SOC 1/Web Security Monitoring",
+    "SOC 1/Network Security Monitoring/Man-in-the-Middle Detection.md",
+    "SOC 1/Network Security Monitoring/Data Exfiltration Detection.md",
+    "SOC 1/Phishing Analysis/Phishing Emails in Action.md",
+    "SOC 1/Data Exfiltration Detection/Untitled.md",
+    "SOC 1/Data Exfiltration Detection",
+    "SOC 1/Phishing Analysis/Phishing Analysis Fundamentals.md",
+    "Forensics/tools/xdg-open.md",
+    "SOC 1/Phishing Analysis",
+    "Forensics/tools/tshark.md",
+    "Forensics/tools/stegsolve.md",
+    "Forensics/tools/StegoOnline(images).md",
+    "Forensics/tools/Steghide.md",
+    "Forensics/tools/openstego.md",
+    "SOC 1/Network Traffic Analysis",
+    "Forensics/writeups/cybertalents",
+    "Forensics/writeups",
+    "SOC 1/Network Security Monitoring",
+    "Forensics/commendes",
     "Pasted image 20260101220535.png",
     "Pasted image 20260101220513.png",
     "Pasted image 20260101220353.png",
-    "SOC 1/SOC Team Internals/SOC Metrics and Objectives.md",
-    "SOC 1/SOC Team Internals/SOC Workbooks and Lookups.md",
-    "SOC 1/SOC Team Internals/SOC L1 Alert Triage.md",
-    "SOC 1/Core SOC Solutions",
-    "pentration/Introduction to Web Hacking/Content Discovery.md",
-    "pentration/Introduction to Web Hacking/File Inclusion.md",
-    "pentration/Introduction to Web Hacking/IDOR.md",
-    "pentration/Introduction to Web Hacking/sql injection.md",
     "Pasted image 20251105004927.png",
-    "SOC 1/SOC Team Internals",
     "Pasted image 20251223215849.png",
     "Pasted image 20251223215830.png",
-    "Pasted image 20251223215815.png",
-    "SOC 1/DFIR",
-    "Untitled.base",
-    "Forensics/tools",
-    "Untitled",
-    "Forensics",
-    "pentration/Introduction to Web Hacking",
-    "tools",
-    "Pasted image 20251105004837.png"
+    "Pasted image 20251223215815.png"
   ]
 }
