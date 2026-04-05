@@ -67,12 +67,14 @@
             "id": "0a26884fbe4d95d1",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.12.7"
+                "file": "SOC 1/Linux Security Monitoring/Linux Logging for SOC.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.7"
+              "icon": "lucide-file",
+              "title": "Linux Logging for SOC"
             }
           }
         ],
@@ -227,6 +229,7 @@
   },
   "active": "0a26884fbe4d95d1",
   "lastOpenFiles": [
+    "Pasted image 20260404213409.png",
     "SOC 1/Windows Security Monitoring/Windows Threat Detection 3.md",
     "SOC 1/Linux Security Monitoring/Linux Logging for SOC.md",
     "SOC 1/Linux Security Monitoring",
@@ -263,7 +266,6 @@
     "SOC 1/Phishing Analysis",
     "Forensics/tools/tshark.md",
     "Forensics/tools/stegsolve.md",
-    "Forensics/tools/StegoOnline(images).md",
     "SOC 1/Network Traffic Analysis",
     "Forensics/writeups/cybertalents",
     "Forensics/writeups",

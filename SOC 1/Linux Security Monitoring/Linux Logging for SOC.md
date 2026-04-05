@@ -57,3 +57,186 @@
 يسمح Linux بتغيير تنسيق السجل (**Log format**)، ومستوى التفاصيل (**Verbosity**)، ومكان التخزين بسهولة. وبسبب تعدد التوزيعات، قد تلاحظ أن السجلات تختلف من نظام لآخر أو قد لا تجد بعضها في أماكنها الافتراضية بناءً على إعدادات كل نظام.
 
 ---
+
+---
+
+---
+
+## الـ Authentication Logs
+
+أول وأهم **log file** ستحتاج لعمل **monitor** له هو الـ `/var/log/auth.log` (أو `/var/log/secure` في الأنظمة الـ **RHEL-based**). ورغم أن اسمه يوحي بأنه مخصص لعمليات الـ **authentication** فقط، إلا أنه في الحقيقة مخزن لكل الـ **user management events**، والـ **sudo commands** التي يتم تنفيذها، وأكثر من ذلك بكثير! لنبدأ بالـ **log file format**:
+![[Pasted image 20260404213409.png]]
+### الـ Login and Logout Events
+
+هناك طرق كثيرة يعمل بها المستخدمون **authenticate** للدخول إلى ماكينة **Linux**: سواء كان ذلك **locally**، أو عبر الـ **SSH**، أو باستخدام أوامر **"sudo"** أو **"su"**، وحتى الـ **automatic logins** الخاصة بالـ **cron jobs**. كل عملية **logon** و **logoff** ناجحة يتم تسجيلها، ويمكنك رؤيتها عبر عمل **filter** للأحداث التي تحتوي على **keywords** مثل **"session opened"** أو **"session closed"**:
+
+**Local and Remote Logins**
+
+Bash
+
+```
+root@thm-vm:~$ cat /var/log/auth.log | grep -E 'session opened|session closed'
+# Local, on-keyboard login and logout of Bob (login:session)
+2025-08-02T16:04:43 thm-vm login[1138]: pam_unix(login:session): session opened for user bob(uid=1001) by bob(uid=0)
+2025-08-02T19:23:08 thm-vm login[1138]: pam_unix(login:session): session closed for user bob
+# Remote login examples of Alice (via SSH and then SMB)
+2025-08-04T09:09:06 thm-vm sshd[839]: pam_unix(sshd:session): session opened for user alice(uid=1002) by alice(uid=0)
+2025-08-04T12:46:13 thm-vm smbd[1795]: pam_unix(samba:session): session opened for user alice(uid=1002) by alice(uid=0)
+```
+
+**Cron and Sudo Logins**
+
+Bash
+
+```
+root@thm-vm:~$ cat /var/log/auth.log | grep -E 'session opened|session closed'
+# Traces of some cron job launch running as root (cron:session)
+2025-08-06T19:35:01 thm-vm CRON[41925]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2025-08-06T19:35:01 thm-vm CRON[3108]: pam_unix(cron:session): session closed for user root
+# Carol running "sudo su" to access root (sudo:session)
+2025-08-07T09:12:32 thm-vm sudo: pam_unix(sudo:session): session opened for user root(uid=0) by carol(uid=1003)
+```
+
+بالإضافة لـ **system logs**، الـ **SSH daemon** بيخزن الـ **log** الخاص به لعمليات الـ **SSH logins** الناجحة والفاشلة. هذه السجلات تذهب لنفس الملف `auth.log` ولكن بـ **format** مختلف قليلاً:
+
+**SSH-Specific Events**
+
+Bash
+
+```
+root@thm-vm:~$ cat /var/log/auth.log | grep "sshd" | grep -E 'Accepted|Failed'
+# Common SSH log format: <is-successful> <auth-method> for <user> from <ip>
+2025-08-07T11:21:25 thm-vm sshd[3139]: Failed password for root from 222.124.17.227 port 50293 ssh2
+2025-08-07T14:17:40 thm-vm sshd[3139]: Failed password for admin from 138.204.127.54 port 52670 ssh2
+2025-08-09T20:30:51 thm-vm sshd[1690]: Accepted publickey for bob from 10.19.92.18 port 55050 ssh2: <key>
+```
+
+---
+
+### الـ Miscellaneous Events
+
+يمكنك أيضاً استخدام نفس الـ **log file** لاكتشاف الـ **user management events**. الأمر سهل إذا كنت تعرف الـ **basic Linux commands**: إذا كان `useradd` هو الأمر لإضافة مستخدمين جدد، ابحث فقط عن **keyword** باسم "useradd" لترى أحداث إنشاء المستخدمين!
+
+**User Management Events**
+
+Bash
+
+```
+root@thm-vm:~$ cat /var/log/auth.log | grep -E '(passwd|useradd|usermod|userdel)\['
+2023-02-01T11:09:55 thm-vm passwd[644]: password for 'ubuntu' changed by 'root'
+2025-08-07T22:11:11 thm-vm userdel[1887]: delete user 'oldbackdoor'
+2025-08-07T22:11:29 thm-vm useradd[1878]: new user: name=backdoor, UID=1002, GID=1002, shell=/bin/sh
+2025-08-07T22:11:54 thm-vm usermod[1906]: add 'backdoor' to group 'sudo'
+2025-08-07T22:11:54 thm-vm usermod[1906]: add 'backdoor' to shadow group 'sudo'
+```
+
+أخيراً، واعتماداً على الـ **system configuration**، قد تصادف أحداثاً غريبة أو **unexpected**. مثلاً، قد تجد الـ **commands** التي نُفذت باستخدام **sudo**، وهذا يساعدك في تتبع الـ **malicious actions**. في المثال أدناه، استخدم المستخدم "ubuntu" الـ **sudo** لإيقاف الـ **EDR**، وقراءة حالة الـ **firewall**، وفي النهاية الوصول للـ **root**:
+
+**Commands Run With Sudo**
+
+Bash
+
+```
+root@thm-vm:~$ cat /var/log/auth.log | grep -E 'COMMAND='
+2025-08-07T11:21:49 thm-vm sudo: ubuntu : TTY=pts/0 ; [...] COMMAND=/usr/bin/systemctl stop edr
+2025-08-07T11:23:18 thm-vm sudo: ubuntu : TTY=pts/0 ; [...] COMMAND=/usr/bin/ufw status numbered
+2025-08-07T11:23:33 thm-vm sudo: ubuntu : TTY=pts/0 ; [...] COMMAND=/usr/bin/su
+```
+
+---------------
+
+---
+
+## الـ Generic System Logs
+
+نظام **Linux** بيسجل أحداث تانية كتير متوزعة في ملفات داخل مسار `/var/log`. الـ **Logs** دي بتشمل تحركات الـ **kernel**، تغييرات الشبكة، والـ **package installation**. شكل الـ **content** بيختلف حسب نوع الـ **OS**، ودي أشهر الملفات:
+
+- **`/var/log/kern.log`**: رسائل وأخطاء الـ **Kernel**، ودي بنحتاجها في التحقيقات المتقدمة (**advanced investigations**).
+    
+- **`/var/log/syslog`** (أو **`/var/log/messages`**): ده "البث المباشر" المجمع لأحداث كتير ومختلفة في النظام.
+    
+- **`/var/log/dpkg.log`** (أو **`/var/log/apt`**): سجلات إدارة البرامج في الأنظمة الـ **Debian-based**.
+    
+- **`/var/log/dnf.log`** (أو **`/var/log/yum.log`**): سجلات إدارة البرامج في الأنظمة الـ **RHEL-based**.
+    
+
+الـ **logs** دي كنز في حالات الـ **DFIR** (التحقيق الجنائي الرقمي)، لكن نادراً ما بيعتمد عليها فريق الـ **SOC** بشكل يومي لأنها بتبقى **noisy** (فيها دوشة وتفاصيل كتير) وصعبة في الـ **parsing** (التحليل والاستخراج).
+
+---
+
+## الـ App-Specific Logs
+
+في الـ **SOC**، أحياناً بتحتاج تعمل **monitor** لبرنامج معين. مثلاً، عشان تعرف إيه اللي بيحصل في الموقع بتاعك، لازم تحلل الـ **web server logs**. إليك مثال من سجلات الـ **Nginx**:
+
+**Nginx Web Access Logs**
+
+Bash
+
+```
+root@thm-vm:~$ cat /var/log/nginx/access.log
+# Every log line corresponds to a web request to the web server
+10.0.1.12 - - [11/08/2025:14:32:10 +0000] "GET / HTTP/1.1" 200 3022
+10.0.1.12 - - [11/08/2025:14:32:14 +0000] "GET /login HTTP/1.1" 200 1056
+10.0.1.12 - - [11/08/2025:14:33:09 +0000] "POST /login HTTP/1.1" 302 112
+10.0.4.99 - - [11/08/2025:17:11:20 +0000] "GET /images/logo.png HTTP/1.1" 200 5432
+10.0.5.21 - - [11/08/2025:17:56:23 +0000] "GET /admin HTTP/1.1" 403 104
+```
+
+كل سطر هنا بيمثل **request** (طلب) وصل للسيرفر، بيوضح الـ **IP**، الوقت، الصفحة المطلوبة، وحالة الرد (زي **200** للنجاح أو **403** للمنع).
+
+---
+
+## الـ Bash History
+
+مصدر تاني مهم جداً هو الـ **Bash history**، وهي ميزة بتسجل كل أمر بتكتبه وتدوس **Enter**. الأوامر بتتحفظ في الـ **memory** طول ما الـ **session** شغالة، وأول ما تعمل **logout** بتتكتب في ملف اسمه `~/.bash_history`.
+
+**Bash History File and Command**
+
+Bash
+
+```
+ubuntu@thm-vm:~$ cat /home/ubuntu/.bash_history
+echo "hello" > world.txt
+nano /etc/ssh/sshd_config
+sudo su
+
+ubuntu@thm-vm:~$ history
+1 echo "hello" > world.txt
+2 nano /etc/ssh/sshd_config
+3 sudo su
+4 ls -la /home/ubuntu
+5 cat /home/ubuntu/.bash_history
+6 history
+```
+
+### الـ Bash History Limitations (القيود والعيوب)
+
+رغم أهميته، الـ **SOC teams** مش بيعتمدوا عليه كلياً؛ لأنه مبيسجلش الـ **non-interactive commands** (زي أوامر الـ **cron jobs**). والأهم من كده إن الـ **attackers** يقدروا يخدعوه بسهولة:
+
+1. **Leading Space:** لو المهاجم حط "مسافة" قبل الأمر، غالباً مش بيتسجل في الـ **logs**!
+    
+    Bash
+    
+    ```
+    ubuntu@thm-vm:~$  echo "You will never see me in logs!"
+    ```
+    
+2. **Scripts:** ممكن يحط أوامره كلها في **script** ويشغله، فـ الـ **history** يسجل تشغيل السكريبت بس مش الأوامر اللي جواه.
+    
+    Bash
+    
+    ```
+    ubuntu@thm-vm:~$ nano legit.sh && ./legit.sh
+    ```
+    
+3. **Changing Shells:** ممكن يستخدم **shell** تاني زي `/bin/sh` وده مبيسجلش الـ **history** بنفس طريقة الـ **Bash**.
+    
+    Bash
+    
+    ```
+    ubuntu@thm-vm:~$ sh
+    $ echo "I am no longer tracked by Bash!"
+    ```
+    
+
+---
