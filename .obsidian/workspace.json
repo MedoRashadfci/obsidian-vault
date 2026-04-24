@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOC 1/Malware Concepts for SOC/Malware Classification.md",
+                "file": "CyberDefenders/SOC Analyst Tier 1/PsExec Hunt Lab.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Malware Classification"
+              "title": "PsExec Hunt Lab"
             }
           }
         ],
@@ -229,8 +229,19 @@
   },
   "active": "0a26884fbe4d95d1",
   "lastOpenFiles": [
-    "SOC 1/Linux Security Monitoring/Linux Threat Detection 3.md",
+    "Pasted image 20260424171759.png",
+    "Pasted image 20260424164007.png",
+    "Pasted image 20260424163701.png",
+    "Pasted image 20260424163546.png",
+    "Pasted image 20260424163029.png",
+    "Pasted image 20260424162659.png",
+    "SOC 1/Wireshark.md",
+    "CyberDefenders/SOC Analyst Tier 1/PsExec Hunt Lab.md",
+    "CyberDefenders/SOC Analyst Tier 1",
+    "CyberDefenders",
+    "Forensics/ideas/writeup.md",
     "SOC 1/Malware Concepts for SOC/Malware Classification.md",
+    "SOC 1/Linux Security Monitoring/Linux Threat Detection 3.md",
     "SOC 1/Malware Concepts for SOC",
     "SOC 1/DFIR/Windows Forensics 1.md",
     "SOC 1/Linux Security Monitoring/Linux Threat Detection 2.md",
@@ -247,10 +258,8 @@
     "SOC 1/Windows Security Monitoring/Windows Threat Detection 1.md",
     "Pasted image 20260309230140.png",
     "Pasted image 20260309230128.png",
-    "SOC 1/Wireshark.md",
     "SOC 1/Web Security Monitoring/Detecting Web Shells.md",
     "SOC 1/Windows Security Monitoring",
-    "Pasted image 20260228235532.png",
     "SOC 1/Web Security Monitoring/Detecting Web Attacks.md",
     "SOC 1/Web Security Monitoring/Untitled",
     "pentration/Network Security/Active Reconnaissance.md",
@@ -263,17 +272,8 @@
     "SOC 1/Network Security Monitoring/IDS Fundamentals.md",
     "SOC 1/Web Security Monitoring",
     "SOC 1/Network Security Monitoring/Man-in-the-Middle Detection.md",
-    "SOC 1/Network Security Monitoring/Data Exfiltration Detection.md",
-    "SOC 1/Phishing Analysis/Phishing Emails in Action.md",
-    "SOC 1/Data Exfiltration Detection/Untitled.md",
     "SOC 1/Data Exfiltration Detection",
     "SOC 1/Phishing Analysis",
-    "SOC 1/Network Traffic Analysis",
-    "Forensics/writeups/cybertalents",
-    "Forensics/writeups",
-    "Pasted image 20260101220535.png",
-    "Pasted image 20260101220513.png",
-    "Pasted image 20260101220353.png",
-    "Pasted image 20251105004927.png"
+    "SOC 1/Network Traffic Analysis"
   ]
 }
