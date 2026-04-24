@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOC 1/Linux Security Monitoring/Linux Logging for SOC.md",
+                "file": "SOC 1/Malware Concepts for SOC/Malware Classification.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux Logging for SOC"
+              "title": "Malware Classification"
             }
           }
         ],
@@ -229,9 +229,15 @@
   },
   "active": "0a26884fbe4d95d1",
   "lastOpenFiles": [
+    "SOC 1/Linux Security Monitoring/Linux Threat Detection 3.md",
+    "SOC 1/Malware Concepts for SOC/Malware Classification.md",
+    "SOC 1/Malware Concepts for SOC",
+    "SOC 1/DFIR/Windows Forensics 1.md",
+    "SOC 1/Linux Security Monitoring/Linux Threat Detection 2.md",
+    "SOC 1/Linux Security Monitoring/Linux Threat Detection 1.md",
+    "SOC 1/Linux Security Monitoring/Linux Logging for SOC.md",
     "Pasted image 20260404213409.png",
     "SOC 1/Windows Security Monitoring/Windows Threat Detection 3.md",
-    "SOC 1/Linux Security Monitoring/Linux Logging for SOC.md",
     "SOC 1/Linux Security Monitoring",
     "SOC 1/Untitled.md",
     "Pasted image 20260310162255.png",
@@ -261,19 +267,13 @@
     "SOC 1/Phishing Analysis/Phishing Emails in Action.md",
     "SOC 1/Data Exfiltration Detection/Untitled.md",
     "SOC 1/Data Exfiltration Detection",
-    "SOC 1/Phishing Analysis/Phishing Analysis Fundamentals.md",
-    "Forensics/tools/xdg-open.md",
     "SOC 1/Phishing Analysis",
-    "Forensics/tools/tshark.md",
-    "Forensics/tools/stegsolve.md",
     "SOC 1/Network Traffic Analysis",
     "Forensics/writeups/cybertalents",
     "Forensics/writeups",
-    "SOC 1/Network Security Monitoring",
     "Pasted image 20260101220535.png",
     "Pasted image 20260101220513.png",
     "Pasted image 20260101220353.png",
-    "Pasted image 20251105004927.png",
-    "Pasted image 20251223215849.png"
+    "Pasted image 20251105004927.png"
   ]
 }
