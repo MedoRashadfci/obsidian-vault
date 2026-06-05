@@ -1,0 +1,1 @@
+[**RdpCacheStitcher**](https://github.com/BSI-Bund/RdpCacheStitcher) is a tool that supports forensic analysts in reconstructing useful images out of RDP cache bitmaps.
